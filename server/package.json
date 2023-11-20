@@ -1,0 +1,28 @@
+{
+  "name": "learn-ka-server",
+  "version": "1.0.0",
+  "description": "Web server for service 'Научись-ка'",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon .",
+    "lint": "eslint **/*.js --fix"
+  },
+  "keywords": [],
+  "author": "NokiD3V (vk.com/nokoko12)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "log4js": "^6.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
