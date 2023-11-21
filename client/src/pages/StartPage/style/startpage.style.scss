@@ -1,0 +1,103 @@
+body{
+    background-color: #8FFFEB;
+}
+.wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    height: 90px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #78E5D2;
+
+    .nav{
+        display: flex;
+        .nav__item{
+            list-style-type: none;
+            color: #252525;
+            font-family: South Park;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-left: 95px;
+            a{
+                text-decoration: none;
+                color: #252525;
+            }
+        }
+    }
+
+    .profile{
+        display: flex;
+        align-items: center;
+        color: #252525;
+        text-align: right;
+        font-family: South Park Cyrillic;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        img{
+            margin-left: 15px;
+        }
+    }
+}
+
+.content{
+    width: 1200px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .text{
+        display: flex;
+        align-items: center;
+    }
+
+    .left__side{
+        .title{
+            color: #000;
+            font-family: South Park;
+            font-size: 86px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+        .description{
+            color: #000;
+            font-family: Gotham Pro;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.72px;
+        }
+    }
+
+    .button{
+        text-align: center;
+        margin-top: 70px;
+        text-decoration: none;
+        color: white;
+        padding: 25px 90px;
+        border-radius: 15px;
+        background: #4FD1ED;   
+        width: 370px;
+        color: #FFF;
+
+        font-family: South Park;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.72px;
+    }
+}
