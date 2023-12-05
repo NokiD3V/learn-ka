@@ -28,6 +28,30 @@ class UserService {
             user: userDto
         }    
     }
+
+    async login(email, password){
+        let user = await Users.findOne({
+            where:{email}
+        })
+        if(!user){
+            throw ApiError.BadRequest(`Неверный email или пароль`)
+        }
+        user = user.dataValues;
+
+        // Проверка хеша пароля и данных пользователя из запроса
+        const isPassEquals = await bcrypt.compare(password, user.password);
+        if(!isPassEquals){
+            throw ApiError.BadRequest("Неверный email или пароль")
+        }
+
+        // Стандартизация данных по Dto (см. внутри функции)
+        const userDto = new UserDto(user)
+        const token = await tokenService.generateToken({...userDto})
+        return {
+            token,
+            user: userDto
+        }
+    }
 }
 
 module.exports = new UserService();
