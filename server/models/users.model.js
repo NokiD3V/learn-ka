@@ -28,6 +28,14 @@ module.exports = (sequelize, Sequelize) => {
       admin:{
         type: Sequelize.BOOLEAN,
         defaultValue: false
+      },
+      class: {
+        type: Sequelize.INTEGER,
+        allowNull: true // Класс в учебной организации (подробнее в tasks.model.js)
+      },
+      currentTask:{
+        type: Sequelize.INTEGER,
+        allowNull: true // Текущее задание пользователя
       }
     });
   
