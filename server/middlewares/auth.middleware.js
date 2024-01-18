@@ -9,15 +9,17 @@ module.exports = async (req, res, next) => {
             return next(ApiError.UnauthorizedError());
         }
 
-        let token = authorizationHeader.split(" ")
-        if(token.length < 2) {
-            return next(ApiError.BadRequest("Ошибка в процессе авторизации. Повторите попытку", []))
-        }
-        token = token[1]
-        const userData = await tokenService.validateToken(token);
+
+        const accessToken = authorizationHeader.split(' ')[1];
+        if(!accessToken){
+            return next(ApiError.UnauthorizedError());
+        } 
+        const userData = await tokenService.validateAccessToken(accessToken);
         if(!userData) {
             return next(ApiError.UnauthorizedError());
         }
+
+        req.userData = userData;
         next()
     } catch (error) {
         console.log(error)
