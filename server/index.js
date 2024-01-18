@@ -26,10 +26,11 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use(cookieParser())
 
 require("./routers/user.router")(app);
+require('./routers/tasks.router')(app)
 
 // Подключение к базе данных, импорт основных моделей и проверки соеденения
 const db = require("./models");
-db.sequelize.sync()
+db.sequelize.sync({force: (process.argv?.[2] == "cleardb")})
 .then(() => {
   logger.debug("Synced db.");
 })
