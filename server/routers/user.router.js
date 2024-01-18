@@ -20,6 +20,7 @@ module.exports = app => {
     body('password').isLength({min:6, max:32}),
     usersController.login
   )
+  router.get('/refresh', usersController.refresh)
 
   app.use('/api/users', router);
 }
