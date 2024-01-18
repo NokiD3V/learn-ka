@@ -1,5 +1,6 @@
 const db = require('../models/index')
 const Users = db.users;
+const Tasks = db.tasks;
 
 const bcrypt = require('bcrypt')
 const UserDto = require('../dtos/user.dto');
@@ -8,25 +9,30 @@ const tokenService = require('./token.service');
 
 class UserService {
     async register(email, password){
-        const candidate = await Users.findOne({
-            where:{email}
-        })
-        if(candidate){
-            throw ApiError.BadRequest(`Пользователь с адресом ${email} уже существует`)
+        try {
+            const candidate = await Users.findOne({
+                where:{email}
+            })
+            if(candidate){
+                throw ApiError.BadRequest(`Пользователь с адресом ${email} уже существует`)
+            }
+    
+            const hashPassword = await bcrypt.hash(password, 3)
+            let user = await Users.create({email, password: hashPassword})
+            user = user.dataValues // Берём данные после создания пользователя в базу данных
+    
+            // userDto - стандартизация данных, филтрация их. Из всего списка данных мы получаем только нужные нам в этот момент данные
+            const userDto = new UserDto(user)
+            const token = await tokenService.generateToken({...userDto})
+    
+            return {
+                token,
+                user: userDto
+            }    
+        } catch (error) {
+            console.log(error)
         }
 
-        const hashPassword = await bcrypt.hash(password, 3)
-        let user = await Users.create({email, password: hashPassword})
-        user = user.dataValues // Берём данные после создания пользователя в базу данных
-
-        // userDto - стандартизация данных, филтрация их. Из всего списка данных мы получаем только нужные нам в этот момент данные
-        const userDto = new UserDto(user)
-        const token = await tokenService.generateToken({...userDto})
-
-        return {
-            token,
-            user: userDto
-        }    
     }
 
     async login(email, password){
@@ -46,11 +52,57 @@ class UserService {
 
         // Стандартизация данных по Dto (см. внутри функции)
         const userDto = new UserDto(user)
-        const token = await tokenService.generateToken({...userDto})
+
+        const tokens = tokenService.generateTokens({...userDto})
+        await tokenService.saveToken(userDto.id, tokens.refreshToken)
         return {
-            token,
+            ...tokens, 
             user: userDto
         }
+
+    }
+
+    async refresh(refreshToken){
+        if(!refreshToken){
+            throw ApiError.UnauthorizedError();
+        }
+
+        const userData = tokenService.validateRefreshToken(refreshToken);
+        const tokenFromDB = await tokenService.findToken(refreshToken);
+        console.log(userData, tokenFromDB)
+        if(!userData || !tokenFromDB){
+            throw ApiError.UnauthorizedError();
+        }
+
+        let user = await Users.findByPk(userData.id);
+
+        const userDto = new UserDto(user);
+        const tokens = tokenService.generateTokens({...userDto});
+        await tokenService.saveToken(userDto.id, tokens.refreshToken);
+        return {
+            ...tokens, 
+            user: userDto
+        }
+    }
+
+    async setTask(userID, taskID){
+        let user = await Users.findOne({
+            where:{id: userID}
+        })
+        if(!user){
+            throw ApiError.BadRequest(`Ошибка системы. Неверный ID пользователя`)
+        }
+        let task = await Tasks.findOne({
+            where:{id: taskID}
+        })
+        if(!task){
+            throw ApiError.BadRequest("Ошибка системы. Неверный ID задачи")
+        }
+        console.log(taskID)
+        
+        user.update({currentTask: taskID})
+        
+        await user.save()
     }
 }
 
