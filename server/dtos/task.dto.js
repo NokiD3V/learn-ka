@@ -1,7 +1,7 @@
 // userDto - стандартизация данных, филтрация их. Из всего списка данных мы получаем только нужные нам в этот момент данные
-module.exports = class UserDto{
+module.exports = class TaskDto{
     id;
-    email;
+    title;
     admin;
     balance;
     class;
