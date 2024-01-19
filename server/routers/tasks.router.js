@@ -5,7 +5,7 @@ module.exports = app => {
 
   const tasksController = require('../controllers/tasks.controller')
 
-  const {body} = require('express-validator')
+  const { body } = require('express-validator')
 
   // URL: /api/users/...
   router.get(
@@ -14,6 +14,5 @@ module.exports = app => {
     tasksController.generateTask
   )
 
-
-  app.use('/api/tasks', router);
+  app.use('/api/tasks', router)
 }

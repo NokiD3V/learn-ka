@@ -5,22 +5,23 @@ module.exports = app => {
 
   const usersController = require('../controllers/users.controller')
 
-  const {body} = require('express-validator')
+  const { body } = require('express-validator')
 
   // URL: /api/users/...
   router.post(
     '/register',
     body('email').isEmail(),
-    body('password').isLength({min:6, max:32}),
+    body('password').isLength({ min: 6, max: 32 }),
     usersController.register
   )
   router.post(
     '/login',
     body('email').isEmail(),
-    body('password').isLength({min:6, max:32}),
+    body('password').isLength({ min: 6, max: 32 }),
     usersController.login
   )
   router.get('/refresh', usersController.refresh)
+  router.post('/logout', usersController.logout)
 
-  app.use('/api/users', router);
+  app.use('/api/users', router)
 }

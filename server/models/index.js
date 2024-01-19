@@ -1,10 +1,9 @@
-const dbConfig = require("../config/db.config.js");
-
+const dbConfig = require('../config/db.config.js')
 
 /**
  * @description Создание базы данных и импортирование из конфигурации
  */
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize')
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -16,14 +15,13 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     acquire: dbConfig.pool.acquire,
     idle: dbConfig.pool.idle
   }
-});
+})
 Sequelize.DataTypes
 
-const db = {};
+const db = {}
 
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
+db.Sequelize = Sequelize
+db.sequelize = sequelize
 
 // Объявление в общей переменной db классов для разных таблиц
 db.users = require('./users.model.js')(sequelize, Sequelize)
@@ -31,6 +29,4 @@ db.rules = require('./rules.model.js')(sequelize, Sequelize)
 db.tasks = require('./tasks.model.js')(sequelize, Sequelize)
 db.tokens = require('./tokens.model.js')(sequelize, Sequelize)
 
-
-
-module.exports = db;
+module.exports = db
