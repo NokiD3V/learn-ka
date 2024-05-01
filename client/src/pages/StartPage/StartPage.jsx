@@ -1,41 +1,35 @@
-import React, { Component } from 'react';
-import './style/startpage.style.scss'
-import homepic from './assets/home_img.png'
-import logo from './assets/logo.svg'
-import profile from './assets/profile.svg'
+import React, { useContext, useEffect } from 'react';
+import style from './style/startpage.module.scss'
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import Header from '../../utilities/Header/Header';
+import Loader from '../../utilities/Loader/Loader';
+import readed from './assets/readed.svg'
+import earth from './assets/earthimg.png'
+
 /**
  * @description Default home page for info about project, Figma-file in README.md
  */
 
-class StartPage extends Component {
-    render() {
-        return (
-            <div>
-                <div className="wrapper">
-                    <header>
-                        <img src={logo} alt="Logo" className="logo" />
-                        <ul className="nav">
-                            <ul className="nav__item"><a href='#'>Главная</a></ul>
-                            <ul className="nav__item"><a href='#'>О нас</a></ul>
-                            <ul className="nav__item"><a href='#'>Контакты</a></ul>
-                        </ul>
-                        <div className="profile">Профиль <img src={profile} alt="[P]" /></div>
-                    </header>
-                    <div className="content">
-                        <div className="text">
-                            <div className="left__side">
-                                <div className="title">Научись-ка</div>
-                                <div className="description">Сервис для улучшения навыков правописания в русском языке. Создавай своего персонажа, получай опыт, сражайся и получай большие призы! Узнай, кто лучше знает русский язык!</div>
-                            </div>
-                            <div className="right__side"><img src={homepic} alt="Image learn-ka teacher" /></div>
-                        </div>
-                        <a className="button" href='#'>Участвовать!</a>
-                    </div>
+const StartPage = () => {
+    const {store} = useContext(Context)
+
+    return (
+        <div>
+            <div className={style.wrapper}>
+                <Header/>
+                <div className={style.content}>
+                    <div className={style.title}>Научись-ка</div>
+                    <div className={style.first__message}><span>Мечтаешь говорить и писать грамотнее на русском языке?</span><img className={style.readed} src={readed} alt="✔️" />.</div>
+                    <div className={style.second__message}><span>Тогда быстрее <a href='/profile'>присоединяйся</a> к нашему самому лучшему сообществу!</span><img className={style.readed} src={readed} alt="✔️" /></div>
+                    <div className={style.footer}><a href='#' onClick={() => {
+                        window.location.href = "/profile"
+                    }}><div className={style.join}>Присоединяйся к нам!</div><img src={earth} alt="" /></a></div>
                 </div>
             </div>
-                
-        );
-    }
+        </div>
+            
+    );
 }
 
-export default StartPage;
+export default observer(StartPage);

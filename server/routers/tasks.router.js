@@ -13,6 +13,10 @@ module.exports = app => {
     authMiddleware,
     tasksController.generateTask
   )
+  router.post(
+    '/answer', 
+    authMiddleware,
+    tasksController.answer)
 
   app.use('/api/tasks', router)
 }

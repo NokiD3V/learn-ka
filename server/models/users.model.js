@@ -20,21 +20,37 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
-    balance: {
-      type: Sequelize.INTEGER,
-      defaultValue: 0
-    },
-    admin: {
-      type: Sequelize.BOOLEAN,
-      defaultValue: false
-    },
     class: {
       type: Sequelize.INTEGER,
       allowNull: true // Класс в учебной организации (подробнее в tasks.model.js)
     },
     currentTask: {
       type: Sequelize.INTEGER,
-      allowNull: true // Текущее задание пользователя
+      defaultValue: 1
+    },
+
+    level:{
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 1
+    },
+    xp:{
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      defaultValue: 0
+    },
+    coins:{
+      type: Sequelize.INTEGER,
+      defaultValue: 0,
+      allowNull: false
+    },
+
+    activeMainItem:{
+      type: Sequelize.INTEGER,
+      references: {
+        model:'items',
+        key: 'id'
+      }
     }
   })
 

@@ -1,8 +1,8 @@
-const { Sequelize } = require('sequelize')
+const S = require('sequelize')
 
 module.exports = (sequelize, Sequelize) => {
   /**
-   * @param {Sequelize} Sequelize
+   * @param {S} Sequelize
    * @description Файл для настройки конфигурации модели правил русского языка в базе данных (автоматическая синхронизация при изменении)
    */
 
@@ -17,7 +17,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     description: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false
     },
     imgUrl: {

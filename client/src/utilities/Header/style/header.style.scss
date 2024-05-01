@@ -1,0 +1,52 @@
+.header__wrapper{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BFB5AF;
+}
+header{
+    height: 90px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .nav{
+        display: flex;
+        .nav__item{
+            list-style-type: none;
+            color: #582C4D;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-left: 95px;
+            a{
+                text-decoration: none;
+                color: #582C4D;
+            }
+        }
+    }
+
+    .profile{
+        display: flex;
+        align-items: center;
+        color: #582C4D;
+        text-align: right;
+        font-family: South Park Cyrillic;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        img{
+            margin-left: 15px;
+        }
+
+        a{
+            color: #582C4D;
+            text-decoration: none;
+        }
+    }
+}

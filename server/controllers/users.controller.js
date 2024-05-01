@@ -3,9 +3,6 @@ logger.level = 'debug'
 const { validationResult } = require('express-validator')
 const ApiError = require('../exceptions/api-error')
 const UserService = require('../service/user.service')
-const tokenService = require('../service/token.service')
-const UserDto = require('../dtos/user.dto')
-const userService = require('../service/user.service')
 
 module.exports.register = async (req, res, next) => {
   try {

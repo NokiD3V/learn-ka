@@ -1,0 +1,62 @@
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .wrapper{
+        width: 1200px;
+    }
+}
+.content *{
+    font-family: 'Montserrat';
+}
+
+.cards{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 100px;
+    grid-template-columns: auto auto auto;
+    .card{
+        max-width: 320px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #000000, #281855);
+        color: #fff;
+        border-radius: 12px;
+        padding: 5px;
+        .card__info{
+            display: flex;
+            flex-direction: column;
+            align-content: start;
+            justify-content: start;
+            height: 100%;
+        }
+        .card__title{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .description{
+            font-size: 12px;
+        }
+        .progress__bar{
+            justify-self: end;
+            margin-top: auto;
+        }
+        .progress__bar__bar{
+            min-height: 10px;
+            min-width: 140px;
+            background-color: #DEDEDE;
+            border-radius: 12px;
+            .progress__status{
+                min-height: 100%;
+                width: 100%;
+                background-color: #60FF83;
+                border-radius: 12px;
+            }
+        }
+    }
+    .card:hover{
+        cursor: pointer;
+    }
+}

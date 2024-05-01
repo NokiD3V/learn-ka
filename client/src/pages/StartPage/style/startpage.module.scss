@@ -1,0 +1,117 @@
+body{
+    background-color: #ECE2D0;
+    overflow-y: hidden;   
+}
+
+#element::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content{
+    width: 920px;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    .title{
+        color: #582C4D;
+        font-family: "South Park Cyrillic";
+        font-size: 120px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .first__message{
+        background: url('../assets/msgbg.svg');
+        width: 540px;
+        height: 80px;
+        margin-top: 60px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        align-self: flex-end;
+        span{
+            color: #000;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-wrap: wrap;
+            padding: 10px 28px 10px 10px;
+        }
+        .readed{
+            position: absolute;
+            align-self: flex-start;
+            justify-self: start;
+            padding: 3px;
+        }
+    }
+
+    .second__message{
+        background: url('../assets/msgbg.svg');
+        width: 540px;
+        height: 80px;
+        margin-top: 60px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        align-self: flex-start;
+        span{
+            color: #000;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-wrap: wrap;
+            padding: 10px 28px 10px 10px;
+        }
+        a{
+            color: #A26769;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            text-decoration: none;
+        }
+        .readed{
+            position: absolute;
+            align-self: flex-start;
+            justify-self: start;
+            padding: 3px;
+        }
+    }
+    .footer{
+        width: 100%;
+        a{
+            text-align: center;
+            color: #582C4D;
+            font-family: Montserrat;
+            font-size: 36px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            min-width: max-content;
+            text-decoration: none;
+        }
+        .join{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        margin-top: 60px;
+    }
+}

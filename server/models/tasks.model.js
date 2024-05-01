@@ -7,14 +7,9 @@ module.exports = (sequelize, Sequelize) => {
    */
 
   const Tasks = sequelize.define('tasks', {
-    id: {
-      type: Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-    },
     type: {
       type: Sequelize.STRING,
-      allowNull: false // ХЗ ПОКА ПОТОМ ПРИДУМАЮ
+      allowNull: false // answer, chose
     },
     title: {
       type: Sequelize.STRING,
@@ -22,13 +17,24 @@ module.exports = (sequelize, Sequelize) => {
     },
     rule: {
       type: Sequelize.INTEGER,
-      allowNull: true // Правило (ID), на которое ссылается задание, может и не быть
+      references: {
+        model: 'rules',
+        key: 'id'
+      }
     },
     class: {
       type: Sequelize.INTEGER,
       allowNull: false
       // Класс (1-13) пользователя (предназначен сервис для школ и СПО)
       // 12 класс - СПО (Среднее профессиональное образование) или НЕ ОБУЧАЮЩИЙСЯ
+    },
+    answer: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    args:{
+      type: Sequelize.STRING,
+      allowNull: true
     }
   })
 

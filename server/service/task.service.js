@@ -22,6 +22,21 @@ class TaskService {
 
     return dataValues
   }
+
+  async correctAnswer(taskID, answer){
+    const task = await Tasks.findOne({
+      where: {
+        id: taskID
+      }
+    })
+
+    if(!task?.dataValues){
+      console.log(task)
+      throw ApiError.BadRequest("Задание не найдено в базе данных!")
+    }
+    
+    return answer.toLowerCase().split(' ').join('') == task.answer
+  }
 }
 
 module.exports = new TaskService()

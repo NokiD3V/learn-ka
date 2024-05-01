@@ -2,15 +2,22 @@
 module.exports = class UserDto {
   id
   email
-  admin
-  balance
   class
+  currentTask
+
+  coins
+  level
+  xp
 
   constructor (module) {
     this.email = module.email
     this.id = module.id
-    this.admin = module.admin
-    this.balance = module.balance
     this.class = module.class
+    this.currentTask = module.currentTask
+
+    this.coins = module.coins
+    this.level = module.level
+    this.xp = module.xp
+
   }
 }

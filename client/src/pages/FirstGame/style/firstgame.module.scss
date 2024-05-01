@@ -1,0 +1,16 @@
+.wrapper{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    font-family: Montserrat;
+    .content{
+        width: 1200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+       
+    }
+}

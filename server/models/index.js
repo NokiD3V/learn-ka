@@ -1,3 +1,4 @@
+const fs = require('fs')
 const dbConfig = require('../config/db.config.js')
 
 /**
@@ -24,9 +25,11 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 
 // Объявление в общей переменной db классов для разных таблиц
+
 db.users = require('./users.model.js')(sequelize, Sequelize)
 db.rules = require('./rules.model.js')(sequelize, Sequelize)
 db.tasks = require('./tasks.model.js')(sequelize, Sequelize)
 db.tokens = require('./tokens.model.js')(sequelize, Sequelize)
+db.items = require('./items.model.js')(sequelize, Sequelize)
 
 module.exports = db

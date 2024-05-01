@@ -67,7 +67,6 @@ class UserService {
 
     const userData = tokenService.validateRefreshToken(refreshToken)
     const tokenFromDB = await tokenService.findToken(refreshToken)
-    console.log(userData, tokenFromDB)
     if (!userData || !tokenFromDB) {
       throw ApiError.UnauthorizedError()
     }
@@ -101,7 +100,6 @@ class UserService {
     if (!task) {
       throw ApiError.BadRequest('Ошибка системы. Неверный ID задачи')
     }
-    console.log(taskID)
 
     user.update({ currentTask: taskID })
 
