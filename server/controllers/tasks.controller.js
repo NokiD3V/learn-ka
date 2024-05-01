@@ -7,10 +7,7 @@ const taskService = require('../service/task.service')
 module.exports.generateTask = async (req, res, next) => {
   try {
     if(!req?.userData?.class) throw ApiError.BadRequest('Ошибка системы. Не найдена информация о пользователе. Повторите попытку позже')
-    const task = await taskService.getRandomTask(req.userData.class)
-    if (!task) return ApiError.BadRequest('Ошибка системы. Повторите попытку позже')
-
-    UserService.setTask(req.userData.id, task.id)
+    
 
     res.send({ success: true, task }).status(200)
   } catch (e) {

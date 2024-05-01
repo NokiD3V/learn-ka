@@ -51,7 +51,12 @@ module.exports = (sequelize, Sequelize) => {
         model:'items',
         key: 'id'
       }
-    }
+    },
+
+    tasksHistory:{
+      type: Sequelize.TEXT,
+      defaultValue:"[0,0,0,0,0]"
+    },
   })
 
   return Users

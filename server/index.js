@@ -46,17 +46,6 @@ db.sequelize.sync({ force: (process.argv?.[2] == 'cleardb') })
   if(process.argv?.[2] == 'cleardb'){
     // ОЧИЩАЕТ ВСЕ ДАННЫЕ В БАЗЕ ДАННЫХ
     // Конфигурация базы данных для дебага
-    db.rules.create({
-      title:'test rule',
-      description:'test rule description',
-    })
-    db.tasks.create({
-      type:'answer',
-      title:'test',
-      rule: 1,
-      class: 12,
-      answer: 'test123'
-    })
     db.users.create({ 
       email:'test2@gmail.com', 
       password: '$2b$04$ffSGSEoQnIbgFvT5Te4JR.bEVLXwfyscFk/0wEuJElv43UkbNOWIW', //Пароль: 123123123
