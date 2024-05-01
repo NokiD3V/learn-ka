@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'http://147.78.67.26:3000',
   credentials: true
 }
 
