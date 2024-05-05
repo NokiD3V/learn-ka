@@ -10,7 +10,7 @@ const Loader = () => {
         <div className={style.loader}>
             <div className={style.title}>Загрузка данных...</div>
             <img src={loadingImage} alt=":)" className={style.img}/>
-            <div className={style.tip}>Подсказка: это делается просто так :D</div>
+            <div className={style.tip}>Совет: учитесь правильно писать :D</div>
         </div>
     );
 }

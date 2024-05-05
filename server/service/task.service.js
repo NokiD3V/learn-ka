@@ -37,6 +37,7 @@ class TaskService {
     
     return answer.toLowerCase().split(' ').join('') == task.answer
   }
+
 }
 
 module.exports = new TaskService()

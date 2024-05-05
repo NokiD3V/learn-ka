@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 import { API_URL } from "../http";
+import http from '../http'
 import AuthService from "../services/auth.service";
 
 export default class Store{
@@ -96,6 +97,42 @@ export default class Store{
         
         console.log(this.isAuth)
     }
+
+    async getTask(){
+        try {
+            const task = await http.get("/tasks/generatetask") 
+            console.log(task)
+            return task.data
+            
+        } catch (e) {
+            console.log(e)
+            this.setErrors([e.response?.data?.message])
+        }
+    }
+
+    async sendTaskAnswer(taskID, answer){
+        try {
+            const task = await http.post("/tasks/answer", {taskID, answer}) 
+            console.log(task)
+            return task.data
+            
+        } catch (e) {
+            console.log(e)
+            this.setErrors([e.response?.data?.message])
+        }
+    }
+
+
+    async getLeaderboard(){
+        try {
+            const users = await http.get("/users/leaders") 
+            if(users.data.success) return users.data
+        } catch (e) {
+            console.log(e)
+            this.setErrors([e.response?.data?.message])
+        }
+    }
+
     setErrors(errors){
         this.localErros = errors;
     }

@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://147.78.67.26:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }
 
@@ -48,16 +48,12 @@ db.sequelize.sync({ force: (process.argv?.[2] == 'cleardb') })
     // Конфигурация базы данных для дебага
     db.users.create({ 
       email:'test2@gmail.com', 
+      name:"Никита",
+      surname:"Покумин",
       password: '$2b$04$ffSGSEoQnIbgFvT5Te4JR.bEVLXwfyscFk/0wEuJElv43UkbNOWIW', //Пароль: 123123123
       class: 12,
-      currentTask: 1
+      currentTask: 0
     })
-    db.items.create({
-      user: 1,
-      title:'test item',
-      type:'test'
-    })
-
   }
 
 })

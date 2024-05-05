@@ -20,6 +20,14 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false
     },
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    surname: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     class: {
       type: Sequelize.INTEGER,
       allowNull: true // Класс в учебной организации (подробнее в tasks.model.js)
@@ -57,6 +65,22 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.TEXT,
       defaultValue:"[0,0,0,0,0]"
     },
+    lastWorkDate:{
+      type: Sequelize.DATE,
+      allowNull: true
+    },
+
+    successTasks:{
+      type: Sequelize.INTEGER,
+      defaultValue: 0
+    },
+    failedTasks:{
+      type: Sequelize.INTEGER,
+      defaultValue: 0
+    }
+  }, {
+    charset: 'utf8',
+    collate: 'utf8_unicode_ci'
   })
 
   return Users

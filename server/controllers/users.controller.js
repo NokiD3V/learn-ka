@@ -56,3 +56,16 @@ exports.refresh = async (req, res, next) => {
     next(e)
   }
 }
+
+
+exports.getMembers = async (req, res, next) => {
+  try {
+    const data = await UserService.getMembers()
+
+    console.log("GET MEMBERS FUNNC -> ", data)
+
+    res.status(200).send({success: true, data })
+  } catch (e) {
+    next(e)
+  }
+}

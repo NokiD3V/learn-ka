@@ -15,16 +15,18 @@ const RequireAuth = ({ children }) => {
     }, [])
 
     useEffect(() => {
-        if(!store.isAuth && !store.isLoading){
-            console.log(store.isAuth)
-            navigate("/login", {replace: true})
-            return
+        if(store.user == {} || store.isAuth == false){
+            store.checkAuth()
         }
-    }, [store.isAuth])
+    }, [store.user])
 
     if(store.isLoading){
-        console.log("Loading",store.isLoading)
-        return <Loader/>
+        return <><Loader/></>
+    }
+
+    if(!store.isAuth){
+        if(!store.user) return;
+        return navigate("/login", {replace: true})
     }
 
     return children

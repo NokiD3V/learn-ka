@@ -5,6 +5,9 @@
     justify-content: center;
     .wrapper{
         width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 35px;
     }
 }
 .content *{
@@ -58,5 +61,61 @@
     }
     .card:hover{
         cursor: pointer;
+    }
+}
+
+
+.chart{
+    margin-left: auto;
+    margin-right: 95px;
+    border: dashed 5px #BFB5AF;
+}
+
+.profile__info{
+    margin-left: 95px;
+    .avatar{
+        padding: 0;
+        margin: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            width: 225px;
+            height: 225px;
+            border-radius: 100%;
+            border: 2px solid #BFB5AF;
+            background-color: #BFB5AF;
+        }
+        .avatar__title{
+            text-align: center;
+            color: #582C4D;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button{
+            text-align: center;
+            margin-top: 5px;
+            width: 95px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #582C4D;
+            color: #ECE2D0;
+        }
+    }
+    
+    .tasks{
+        margin-top: 50px;
+        color: #582C4D;
+        .tasks__title{
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .tasks__item{
+            font-size: 16px;
+        }
     }
 }

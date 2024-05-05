@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
       }
     },
     refreshToken: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT,
       allowNull: false
     }
   })

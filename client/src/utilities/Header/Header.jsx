@@ -37,8 +37,8 @@ const Header = () => {
                     <a href='/'><img src={logo} alt="Logo" className="logo"/></a>
                     <ul className="nav">
                         <ul className="nav__item"><a href='/games'>Играть</a></ul>
-                        <ul className="nav__item"><a href='/rating'>Рейтинг</a></ul>
-                        <ul className="nav__item"><a href='/shop'>Магазин</a></ul>
+                        <ul className="nav__item"><a href='/leaders'>Рейтинг</a></ul>
+                        <ul className="nav__item"><a href='#'>О нас</a></ul>
                     </ul>
                     <div className="profile"><a href="/profile">Профиль</a><img src={profile} alt="[P]" /></div>
                 </header>  

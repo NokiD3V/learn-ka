@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import RequireAuth from './utilities/RequireAuth/RequireAuth';
 import FirstGame from './pages/FirstGame/FirstGame';
 import GamesPage from './pages/Games/GamesPage';
+import Leaders from './pages/Leaders/Leaders';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/register' Component={RegisterPage} />
         <Route path='/writecorrect' Component={() => <RequireAuth><FirstGame/></RequireAuth>}/>
         <Route path='/games' Component={() => <RequireAuth><GamesPage/></RequireAuth>}/>
+        <Route path='/leaders' Component={() => <RequireAuth><Leaders/></RequireAuth>}/>
       </Routes>
     </BrowserRouter>
   );

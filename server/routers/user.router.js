@@ -23,5 +23,7 @@ module.exports = app => {
   router.get('/refresh', usersController.refresh)
   router.post('/logout', usersController.logout)
 
+  router.get('/leaders', authMiddleware, usersController.getMembers)
+
   app.use('/api/users', router)
 }

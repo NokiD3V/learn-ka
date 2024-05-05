@@ -7,6 +7,33 @@ const UserDto = require('../dtos/user.dto')
 const ApiError = require('../exceptions/api-error')
 const tokenService = require('./token.service')
 
+function shiftArrayByDateDifference(arr, lastDate, todayDate) {
+  // Преобразуем даты в объекты Date
+  const last = new Date(lastDate);
+  const today = new Date(todayDate);
+  
+  // Вычисляем разницу в днях между последней датой и сегодняшним днём
+  const timeDiff = Math.abs(today.getTime() - last.getTime());
+  const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Преобразуем миллисекунды в дни и округляем в большую сторону
+  
+  // Если последняя дата позже сегодняшней, сдвигаем массив вправо
+  if (last > today) {
+      for (let i = 0; i < dayDiff; i++) {
+          arr.unshift(0); // Добавляем 0 в начало массива
+          arr.pop(); // Удаляем последний элемент массива
+      }
+  }
+  // Если последняя дата раньше сегодняшней, сдвигаем массив влево
+  else if (last < today) {
+      for (let i = 0; i < dayDiff; i++) {
+          arr.push(0); // Добавляем 0 в конец массива
+          arr.shift(); // Удаляем первый элемент массива
+      }
+  }
+  
+  return arr;
+}
+
 class UserService {
   async register (email, password) {
     try {
@@ -104,6 +131,91 @@ class UserService {
     user.update({ currentTask: taskID })
 
     await user.save()
+  }
+
+  
+  async incorrectAnswer(userID, currentTask){
+    const user = await Users.findOne({
+      where: { id: userID }
+    })
+    if (!user) throw ApiError.BadRequest('Ошибка системы. Неверный ID пользователя')
+    const currentDay = new Date().toJSON().slice(0,10)
+    const lastDay = new Date(user.lastWorkDate).toJSON().slice(0,10)
+    let workArray = user.tasksHistory
+    if(workArray == null){
+      workArray = [0,0,0,0,0]
+    }
+    else workArray = JSON.parse(workArray)
+    if(currentDay != lastDay){
+      workArray = shiftArrayByDateDifference(workArray, lastDay, currentDay)
+      console.log(workArray)
+    }
+
+    workArray[4] += 1;
+
+    if(currentTask >= 3) user.update({ currentTask: currentTask - 3, lastWorkDate: new Date().toJSON().slice(0,10), tasksHistory: `[${workArray.toString()}]`, failedTasks: user.failedTasks + 1 })
+    else user.update({ currentTask: 0, lastWorkDate: new Date().toJSON().slice(0,10), tasksHistory: `[${workArray.toString()}]`, failedTasks: user.failedTasks + 1  })
+
+    await user.save()
+  }
+
+  async correctAnswer(userID, currentTask){
+    const user = await Users.findOne({
+      where: { id: userID }
+    })
+    if (!user) throw ApiError.BadRequest('Ошибка системы. Неверный ID пользователя')
+    
+    const currentDay = new Date().toJSON().slice(0,10)
+    const lastDay = new Date(user.lastWorkDate).toJSON().slice(0,10)
+    let workArray = user.tasksHistory
+    if(workArray == null){
+      workArray = [0,0,0,0,0]
+    }
+    else workArray = JSON.parse(workArray)
+    if(currentDay != lastDay){
+      workArray = shiftArrayByDateDifference(workArray, lastDay, currentDay)
+      console.log(workArray)
+    }
+
+    workArray[4] += 1;
+
+    user.update({ currentTask: currentTask + 1, lastWorkDate: new Date().toJSON().slice(0,10), tasksHistory: `[${workArray.toString()}]`, successTasks: user.successTasks + 1 })
+
+    await user.save()
+  }
+
+  async getMembers(){
+    const users = await Users.findAll({where: {}})
+    if (!users || users.length < 1) throw ApiError.BadRequest('Ошибка системы. Не могу найти пользователей сети')
+    
+    let filteredUsers = []
+    users.map(n => {
+      const _u = new LeadersUserDto(n)
+      filteredUsers.push(_u)
+    })
+
+    console.log(filteredUsers)
+    return filteredUsers
+  }
+}
+
+
+class LeadersUserDto {
+  id
+  name
+  surname
+
+  successTasks
+  failedTasks
+  currentTask
+  constructor (module) {
+    this.id = module.id
+    this.name = module.name
+    this.surname = module.surname
+
+    this.successTasks = module.successTasks
+    this.failedTasks = module.failedTasks
+    this.currentTask = module.currentTask
   }
 }
 

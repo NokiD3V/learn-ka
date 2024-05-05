@@ -10,9 +10,13 @@ const GamesPage = () => {
     const {store} = useContext(Context)
     const navigate = useNavigate()
     const [ipAddress, setIPAddress] = useState('')
-    const progress = 30
+    const [progress, setProgress] = useState(0)
     
-
+    useEffect(() => {
+      if(store.isAuth){
+        setProgress(Math.floor(store.user.currentTask / 25 * 100))
+      }
+    }, [])
   
     return (
       <div>
