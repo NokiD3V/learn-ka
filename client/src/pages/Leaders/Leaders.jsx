@@ -18,8 +18,7 @@ const Leaders = () => {
             let _users = await store.getLeaderboard()
             if(!_users?.data) return;
             let sorted_users = _users.data.sort((a, b) => {
-                console.log(b)
-                return b.successTasks / (b.successTasks + b.failedTasks) - a.successTasks / (a.successTasks + a.failedTasks)
+                return b.currentTask  / 25 - a.currentTask / 25
             })
             setUsers(sorted_users)
             console.log(_users)
@@ -46,10 +45,10 @@ const Leaders = () => {
                                     <img src={require('./assets/sad.png')} className={style.avatar}/>
                                     <div className={[style.user__name, (n.id == store.user?.id ? style.user__self : null)].join(" ")}>{n.name} {n.surname.slice(0, 1)}.</div>
                                 </div>
-                                <div className={style.user__number}>{n.currentTask / 25 * 100}%</div>
+                                <div className={style.user__number}>{Math.floor(n.currentTask / 25 * 100)}%</div>
                                 <div className={style.user__number}>{n.successTasks}</div>
                                 <div className={style.user__number}>{n.failedTasks}</div>
-                                <div className={style.user__number}>{Math.floor(n.successTasks / (n.successTasks + n.failedTasks) * 100)}%</div>
+                                <div className={style.user__number}>{Math.floor(n.successTasks / (n.successTasks + n.failedTasks) * 100) || 0}%</div>
                             </div>
                         )
                     })}

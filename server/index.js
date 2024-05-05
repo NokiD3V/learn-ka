@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const corsOptions = {
-  origin: 'http://web.mkvpolit.space',
+  origin: 'http://localhost',
   credentials: true
 }
 

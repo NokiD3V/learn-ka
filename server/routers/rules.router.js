@@ -11,5 +11,14 @@ module.exports = app => {
     rulesController.getRule
   )
 
+  router.use((err, req, res, next) => {
+    console.log(err)
+    if(err.status != 200) res.status(err.status).send({
+      success: false,
+      message: err.errors[0]
+    })
+    next(err)
+  })
+
   app.use('/api/rules', router)
 }

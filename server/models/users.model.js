@@ -34,7 +34,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     currentTask: {
       type: Sequelize.INTEGER,
-      defaultValue: 1
+      defaultValue: 0
     },
 
     level:{

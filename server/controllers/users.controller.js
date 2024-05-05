@@ -10,8 +10,8 @@ module.exports.register = async (req, res, next) => {
     if (!errors.isEmpty()) {
       return next(ApiError.BadRequest('Ошибка при валидации данных пользователя', errors.array()))
     }
-    const { email, password } = req.body
-    const userData = await UserService.register(email, password)
+    const { email, password, name, surname } = req.body
+    const userData = await UserService.register(email, password, name, surname)
 
     console.log(userData)
 

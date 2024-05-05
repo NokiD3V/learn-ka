@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import './style/header.style.scss'
+import style from './style/header.module.scss'
 import logo from './assets/logo.svg'
 import profile from './assets/profile.svg'
 import { observer } from 'mobx-react-lite';
@@ -30,33 +30,40 @@ const Header = () => {
     }
 
 
-    if(store.isAuth){
-        return (
-            <div className="header__wrapper">
-                <header>
-                    <a href='/'><img src={logo} alt="Logo" className="logo"/></a>
-                    <ul className="nav">
-                        <ul className="nav__item"><a href='/games'>Играть</a></ul>
-                        <ul className="nav__item"><a href='/leaders'>Рейтинг</a></ul>
-                        <ul className="nav__item"><a href='#'>О нас</a></ul>
-                    </ul>
-                    <div className="profile"><a href="/profile">Профиль</a><img src={profile} alt="[P]" /></div>
-                </header>  
-            </div>
-        )
-    }
     return (
-        <div className="header__wrapper">
+        <div className={style.header__wrapper}>
             <header>
                 <a href='/'><img src={logo} alt="Logo" className="logo"/></a>
-                <ul className="nav">
-                    <ul className="nav__item"><a href='/'>Главная</a></ul>
-                    <ul className="nav__item"><a href='#'>О нас</a></ul>
-                    <ul className="nav__item"><a href='#'>Контакты</a></ul>
-                </ul>
-                <div className="profile"><a href="/profile">Профиль</a><img src={profile} alt="[P]" /></div>
+                {store.isAuth ? 
+                (<ul className={style.nav}>
+                    <ul className={style.nav__item}><a href='/games'>Играть</a></ul>
+                    <ul className={style.nav__item}><a href='/leaders'>Рейтинг</a></ul>
+                    <ul className={style.nav__item}><a href='https://vk.com/nokoko12'>О нас</a></ul> 
+                </ul>)
+                : (<ul className={style.nav}>
+                    <ul className={style.nav__item}><a href='/'>Главная</a></ul>
+                    <ul className={style.nav__item}><a href='https://vk.com/nokoko12'>О нас</a></ul>
+                    <ul className={style.nav__item}><a href='https://vk.com/nokoko12'>Контакты</a></ul>
+                </ul>)
+                }
+                <div className={style.profile}><a href="/profile">Профиль</a><img src={profile} alt="[P]" /></div>
             </header>  
+            { store.localErros.length > 0 && store.localErros?.[0] != undefined ?       
+                store.localErros.map(n => {
+                    return (
+                        <div className={style.errors} >
+                            <ul>
+                                <li onClick={() => {
+                            store.setErrors([])
+                        }}>{n}</li>
+                            </ul>
+                        </div>
+                    )
+                })
+                : null
+            }
         </div>
+
     );
 }
 

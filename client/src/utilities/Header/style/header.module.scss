@@ -35,10 +35,10 @@ header{
         align-items: center;
         color: #582C4D;
         text-align: right;
-        font-family: South Park Cyrillic;
+        font-family: Montserrat;
         font-size: 24px;
         font-style: normal;
-        font-weight: 400;
+        font-weight: bold;
         line-height: normal;
         img{
             margin-left: 15px;
@@ -50,3 +50,34 @@ header{
         }
     }
 }
+
+
+.errors{
+    position: fixed;
+    font-family: Montserrat;
+    padding-right: 50px;
+    color: #582C4D;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    float: right;
+    z-index: 100;
+    right: 0;
+    bottom: 0px;
+    margin-bottom: 50px;
+    ul{
+        z-index: 100;
+        li{
+            z-index: 100;
+            list-style-type: none;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #582C4D;
+            background-color: #ECE2D0;
+        }
+    }
+}
+.errors li:hover{
+    cursor: pointer;
+}
+

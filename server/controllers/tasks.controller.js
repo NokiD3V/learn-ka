@@ -7,7 +7,7 @@ const allTasks = require('./all_tasks.json')
 
 module.exports.generateTask = async (req, res, next) => {
   try {
-    if(!req?.userData?.class) throw ApiError.BadRequest('Ошибка системы. Не найдена информация о пользователе. Повторите попытку позже')
+    if(!req?.userData?.currentTask && req?.userData?.currentTask != 0) throw ApiError.BadRequest('Ошибка системы. Не найдена информация о пользователе. Повторите попытку позже')
     
     const currTask = req.userData.currentTask
 

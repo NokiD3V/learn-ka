@@ -48,6 +48,7 @@ const LoginPage = () => {
                             <span>Пароль</span>
                             <input type="password" name="password" onChange={(e) => setPassword(e.target.value)} placeholder='ОченьСложныйПароль'/>
                         </div>
+                        <a href="/register" className={style.link}>Нет аккаунта? Создайте!</a>
                         <a className={style.login__btn} href='#' onClick={() => store.login(email, password)}>Войти</a>
                     </div>
                     <div className={style.picture}><img src={image} alt="Авторизация" /></div>

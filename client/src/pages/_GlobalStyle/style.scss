@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'South Park';
     src: local('South Park Cyrillic'), local('South-Park-Cyrillic'),
-        url('SouthPark_Cyr.woff2') format('woff2'),
-        url('SouthPark_Cyr.woff') format('woff'),
-        url('SouthPark_Cyr.ttf') format('truetype');
+        url('./SouthPark_Cyr.woff2') format('woff2'),
+        url('./SouthPark_Cyr.woff') format('woff'),
+        url('./SouthPark_Cyr.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

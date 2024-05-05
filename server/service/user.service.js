@@ -35,29 +35,25 @@ function shiftArrayByDateDifference(arr, lastDate, todayDate) {
 }
 
 class UserService {
-  async register (email, password) {
-    try {
-      const candidate = await Users.findOne({
-        where: { email }
-      })
-      if (candidate) {
-        throw ApiError.BadRequest(`Пользователь с адресом ${email} уже существует`)
-      }
+  async register (email, password, name, surname) {
+    const candidate = await Users.findOne({
+      where: { email }
+    })
+    if (candidate) {
+      throw ApiError.BadRequest(`Пользователь с адресом ${email} уже существует`)
+    }
 
-      const hashPassword = await bcrypt.hash(password, 3)
-      let user = await Users.create({ email, password: hashPassword })
-      user = user.dataValues // Берём данные после создания пользователя в базу данных
+    const hashPassword = await bcrypt.hash(password, 3)
+    let user = await Users.create({ email, password: hashPassword, name, surname, lastWorkDate: new Date() })
+    user = user.dataValues // Берём данные после создания пользователя в базу данных
 
-      // userDto - стандартизация данных, филтрация их. Из всего списка данных мы получаем только нужные нам в этот момент данные
-      const userDto = new UserDto(user)
-      const token = await tokenService.generateToken({ ...userDto })
+    // userDto - стандартизация данных, филтрация их. Из всего списка данных мы получаем только нужные нам в этот момент данные
+    const userDto = new UserDto(user)
+    const token = await tokenService.generateTokens({ ...userDto })
 
-      return {
-        token,
-        user: userDto
-      }
-    } catch (error) {
-      console.log(error)
+    return {
+      token,
+      user: userDto
     }
   }
 

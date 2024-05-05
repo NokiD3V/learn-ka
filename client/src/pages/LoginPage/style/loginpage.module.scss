@@ -19,7 +19,8 @@
             .title{
                 font-size: 40px;
                 text-align: center;
-                font-family: "South Park Cyrillic";
+                font-family: "Montserrat";
+                font-weight: bold;
             }
             .email{ 
                 display: flex;
@@ -54,15 +55,18 @@
                     border-radius: 5px;
                 }
             }
+            .link{
+                margin-top: 20px;
+            }
             .login__btn{
                 text-decoration: none;
-                color: #fff;
-                background-color: #D5B9B2;
-                padding: 13px 40px;
-                margin-top: 50px;
+                color: #ECE2D0;
+                background-color: #582C4D;
+                padding: 10px 30px;
+                margin-top: 30px;
                 border-radius: 5px;
-                font-size: 24px;
-                font-family: "South Park Cyrillic";
+                font-size: 18px;
+                font-family: "Montserrat";
             }
         }
 
