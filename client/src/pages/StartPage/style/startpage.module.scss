@@ -16,10 +16,9 @@ body{
 
 .content{
     width: 920px;
-    height: 93vh;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
 
     .title{
         color: #582C4D;
@@ -29,6 +28,7 @@ body{
         font-weight: 400;
         line-height: normal;
         text-align: center;
+        margin-top: 35px;
     }
 
     .first__message{
@@ -113,5 +113,78 @@ body{
         }
 
         margin-top: 60px;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    .content{
+        max-width: 880px !important;
+    }    
+    .join__img{
+        max-width: 840px;
+    }
+}
+@media screen and (max-width: 880px) {
+    .content{
+        height: 100vh;
+        margin-top: 100px  !important;
+        width: min-content;
+    }   
+    .footer a{
+        display: flex;
+        flex-direction: column;
+    }
+    .join__img{
+        max-width: 90vw;
+        align-self: center;
+    } 
+
+
+    .first__message{
+        justify-content: center !important;
+        align-items: center !important;
+        align-self: flex-end !important;
+        width: 280px !important;
+        height: 60px  !important;
+        span{
+            color: #000 !important;
+            font-family: Montserrat !important;
+            font-size: 16px !important;
+            padding: 5px 14px 5px 5px !important;
+        }
+        img{
+            display: none;
+        }
+    }
+
+    .second__message{
+        justify-content: center !important;
+        align-items: center !important;
+        align-self: flex-start !important;
+        width: 280px !important;
+        height: 80px  !important;
+        span{
+            color: #000 !important;
+            font-family: Montserrat !important;
+            font-size: 16px !important;
+            padding: 5px 14px 5px 5px !important;
+        }
+        a{
+            color: #A26769;
+            font-family: Montserrat;
+            font-size: 16px !important;
+        }
+        img{
+            display: none;
+        }
+    }
+
+    .title{
+        font-size: 40px !important;
+    }
+
+    .join{
+        font-size: 20px !important;
     }
 }

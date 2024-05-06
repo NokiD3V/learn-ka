@@ -76,3 +76,21 @@
         }
     }
 }
+
+@media screen and (max-width: 880px) {
+    .wrapper{
+        height: 100vh !important;
+    }
+    .picture{
+        display: none;
+    }
+    .content{
+        width: auto !important;
+    }
+    .form__child{
+        margin-top: 10px !important;
+    }
+    .login__btn{
+        margin-top: 10px !important;
+    }
+}

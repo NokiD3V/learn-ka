@@ -119,3 +119,31 @@
         }
     }
 }
+
+
+@media screen and (max-width: 880px) {
+    .wrapper{
+        flex-direction: column;
+        align-items: center !important;
+        .chart{
+            margin-top: 20px !important;
+            margin-right: 0 !important;
+        }
+        .profile__info{
+            margin-left: 0 !important;
+        }
+        padding-top: 70px;
+    }
+    .avatar{
+        img{
+            width: 190px !important;
+            height: auto !important;
+        }
+    }
+    .tasks__title{
+        text-align: center;
+    }
+    .tasks__item{
+        text-align: center;
+    }
+}

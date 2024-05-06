@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 90vh;
     font-family: Montserrat;
     .content{
         width: 920px;
@@ -74,5 +74,15 @@
             width: 458px;
             height: 449px;
         }
+    }
+}
+
+
+@media screen and (max-width: 880px) {
+    .picture{
+        display: none;
+    }
+    .content{
+        width: auto !important;
     }
 }

@@ -51,3 +51,28 @@
         min-width: 65px;
     }
 }
+
+@media screen and (max-width: 880px) {
+    .content{
+        margin-top: 100px;
+        width: 95% !important;
+    }
+    .title__col{
+        font-size: 10px !important;
+    }
+    .title__col__item:nth-child(1){
+        width: 110px !important;
+        text-align: left;
+    }
+    .user__number{
+        font-size: 12px !important;
+        min-width: 30px !important;
+        max-width: 30px !important;
+    }
+    .user__name{
+        font-size: 10px !important;
+    }
+    .user__info{
+        width: 110px !important;
+    }
+}

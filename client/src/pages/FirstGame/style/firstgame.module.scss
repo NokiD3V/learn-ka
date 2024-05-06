@@ -143,3 +143,25 @@
     color: #ECE2D0;
     align-self: center;
 }
+
+@media screen and (max-width: 660px) {
+    .modal__wrapper{
+        width: min-content !important;
+        min-width: 250px;
+        padding: 15px;
+        .modal__title{
+            font-size: 1em;
+            text-wrap: nowrap;
+            word-break: keep-all;
+        }
+        .sad__img{
+            width: 150px;
+            height: 150px;
+            position:relative !important;
+            margin-left: 0 !important;
+            margin-top: 20px !important;
+            rotate: 15deg;
+            align-self: center;
+        }
+    }
+}

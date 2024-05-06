@@ -42,7 +42,7 @@ const Leaders = () => {
                         return (
                             <div className={style.user__item}>
                                 <div className={style.user__info}>
-                                    <img src={require('./assets/sad.png')} className={style.avatar}/>
+                                    <img src={require('./assets/icon.png')} className={style.avatar}/>
                                     <div className={[style.user__name, (n.id == store.user?.id ? style.user__self : null)].join(" ")}>{n.name} {n.surname.slice(0, 1)}.</div>
                                 </div>
                                 <div className={style.user__number}>{Math.floor(n.currentTask / 25 * 100)}%</div>

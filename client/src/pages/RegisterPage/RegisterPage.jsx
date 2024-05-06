@@ -53,8 +53,9 @@ const RegisterPage = () => {
             <div className={style.wrapper}>
                 <div className={style.content}>
                     <form className={style.form} onSubmit={handleSubmit((data) => {
+                        if(data.password.length < 6) return store.setErrors(["Пароль слишком короткий"])
                         if(data.password != data.passwordrepeat) return store.setErrors(["Пароли не совпадают"])
-
+                        
                         store.registration(data)
                     })}>
                         <div className={style.title}>Регистрация</div>
@@ -79,7 +80,7 @@ const RegisterPage = () => {
                             <input type="password" name="passwordrepeat" placeholder='ОченьСложныйПароль2' {...register('passwordrepeat', { required: true })}/>
                         </div>
                         <a href="/login" className={style.link}>Есть аккаунт? Войдите!</a>
-                        <button type="submit" className={style.login__btn} href='#'>Войти</button>
+                        <button type="submit" className={style.login__btn} href='#'>Создать</button>
                     </form>
                     <div className={style.picture}><img src={image} alt="Регистрация" /></div>
                 </div>

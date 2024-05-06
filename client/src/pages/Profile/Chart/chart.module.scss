@@ -1,3 +1,9 @@
 .bar{
     width: 445px;
 }
+
+@media screen and (max-width: 880px) {
+    .bar { 
+        width: 250px !important;
+    }
+}

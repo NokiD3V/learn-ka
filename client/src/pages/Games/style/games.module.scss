@@ -5,6 +5,8 @@
     justify-content: center;
     .wrapper{
         width: 1200px;
+        display: flex;
+        flex-direction: column;
     }
 }
 .content *{
@@ -59,5 +61,20 @@
     }
     .card:hover{
         cursor: pointer;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .cards{
+        margin-top: 30px !important;
+        align-self: center;
+    }
+}
+@media screen and (max-width: 880px) {
+    .cards{
+        margin-top: 120px !important;
+        align-self: center !important;
+        gap: 0 !important;
     }
 }
