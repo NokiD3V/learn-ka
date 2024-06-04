@@ -1,5 +1,6 @@
-body{
+body:has(.wrapper){
     overflow-y: visible !important;   
+    overflow-x: hidden !important;
 }
 .wrapper{
     width: 100vw;
@@ -11,6 +12,8 @@ body{
         width: 1200px;
         font-size: 18px;
     }
+    overflow-y: visible !important;   
+    overflow-x: hidden !important;
 }
 .title__col{
     display: flex;
