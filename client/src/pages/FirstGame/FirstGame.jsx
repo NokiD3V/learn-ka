@@ -17,7 +17,7 @@ const FirstGame = () => {
         
     useEffect(() => {
         const getTask = async () => {
-            if(store?.user?.currentTask >= 25) return;
+            if(store?.user?.currentTask >= 7) return;
             const _task = await store.getTask()
             setTask(_task.task)
         }
@@ -28,7 +28,7 @@ const FirstGame = () => {
         return <Loader/>
     }
 
-    if(store?.user?.currentTask >= 25){
+    if(store?.user?.currentTask >= 7){
         return (
             <div>
                 <Header/>

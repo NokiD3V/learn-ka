@@ -14,7 +14,7 @@ const GamesPage = () => {
     
     useEffect(() => {
       if(store.isAuth){
-        setProgress(Math.floor(store.user.currentTask / 25 * 100))
+        setProgress(Math.floor(store.user.currentTask / 7 * 100))
       }
     }, [])
   

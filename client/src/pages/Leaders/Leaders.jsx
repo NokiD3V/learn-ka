@@ -45,7 +45,7 @@ const Leaders = () => {
                                     <img src={require('./assets/icon.png')} className={style.avatar}/>
                                     <div className={[style.user__name, (n.id == store.user?.id ? style.user__self : null)].join(" ")}>{n.name} {n.surname.slice(0, 1)}.</div>
                                 </div>
-                                <div className={style.user__number}>{Math.floor(n.currentTask / 25 * 100)}%</div>
+                                <div className={style.user__number}>{Math.floor(n.currentTask / 7 * 100)}%</div>
                                 <div className={style.user__number}>{n.successTasks}</div>
                                 <div className={style.user__number}>{n.failedTasks}</div>
                                 <div className={style.user__number}>{Math.floor(n.successTasks / (n.successTasks + n.failedTasks) * 100) || 0}%</div>
