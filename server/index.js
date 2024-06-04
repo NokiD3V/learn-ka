@@ -13,13 +13,16 @@ const app = express()
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
-const corsOptions = {
-  origin: 'http://web.mkvpolit.space',
-  credentials: true
-}
+// const corsOptions = {
+//   origin: 'http://localhost',
+//   credentials: true
+// }
 
 // Интеграция API вместе с парсерами
-app.use(cors(corsOptions))
+app.use(cors({ origin: function (origin, callback) {
+
+  callback(null, origin)
+}, credentials: true }));
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb', parameterLimit: 50000 }))
 app.use(bodyParser.json({ limit: '50mb' }))
