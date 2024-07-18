@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.060c77bc.css",
+    "main.js": "/static/js/main.b9adebcc.js",
+    "static/js/787.0769c6b5.chunk.js": "/static/js/787.0769c6b5.chunk.js",
+    "static/media/earthimg.png": "/static/media/earthimg.b887a43904cf9ed864dd.png",
+    "static/media/image1.png": "/static/media/image1.6579ca64a18fdb93455c.png",
+    "static/media/SouthPark_Cyr.ttf": "/static/media/SouthPark_Cyr.c22dd8cdff53e4e740a8.ttf",
+    "static/media/win.png": "/static/media/win.f69a8a2b058cbc6b6a00.png",
+    "static/media/sad.png": "/static/media/sad.4cc519bd72c4a5e0680d.png",
+    "static/media/SouthPark_Cyr.woff": "/static/media/SouthPark_Cyr.0f26532b93b16fd3ef02.woff",
+    "static/media/SouthPark_Cyr.woff2": "/static/media/SouthPark_Cyr.d0dffb84d0228d3e3e47.woff2",
+    "static/media/logo.svg": "/static/media/logo.cb0cd737d787da42071cc6bddfc6a550.svg",
+    "static/media/profile.svg": "/static/media/profile.691e5c6489e12e8eca364c741fc227ae.svg",
+    "static/media/icon.svg": "/static/media/icon.b2f979f0d5c97b1c035c70eb52f6e171.svg",
+    "index.html": "/index.html",
+    "static/media/readed.svg": "/static/media/readed.342b1befd4982cdc936e92faf503b70b.svg",
+    "static/media/msgbg.svg": "/static/media/msgbg.1d8a16b95cd5981b8717.svg",
+    "static/media/burger.svg": "/static/media/burger.4879310db4f4190530cfad8fb607ac57.svg",
+    "main.060c77bc.css.map": "/static/css/main.060c77bc.css.map",
+    "main.b9adebcc.js.map": "/static/js/main.b9adebcc.js.map",
+    "787.0769c6b5.chunk.js.map": "/static/js/787.0769c6b5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.060c77bc.css",
+    "static/js/main.b9adebcc.js"
+  ]
+}

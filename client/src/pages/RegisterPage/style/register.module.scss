@@ -1,0 +1,96 @@
+.wrapper{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    font-family: Montserrat;
+    .content{
+        width: 920px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #582C4D;
+            .title{
+                font-size: 40px;
+                text-align: center;
+                font-family: "Montserrat";
+                font-weight: bold;
+            }
+            .form__child{ 
+                display: flex;
+                flex-direction: column;
+                margin-top: 25px;
+                font-size: 24px;
+                input{
+                    margin-top: 5px;
+                    font-family: sans-serif;
+                    border: none;
+                    width: 350px;
+                    height: 25px;
+                    font-size: 14px;
+                    padding-left: 5px;
+                    border-radius: 5px;
+                    background-color: #fff;             
+                }
+            }
+            .password{
+                display: flex;
+                flex-direction: column;
+                margin-top: 25px;
+                font-size: 24px;
+                input{
+                    margin-top: 5px;
+                    font-family: sans-serif;
+                    border: none;
+                    width: 350px;
+                    height: 25px;
+                    font-size: 14px;
+                    padding-left: 5px;
+                    border-radius: 5px;
+                }
+            }
+            .link{
+                margin-top: 20px;
+            }
+            .login__btn{
+                text-decoration: none;
+                color: #ECE2D0;
+                background-color: #582C4D;
+                padding: 10px 30px;
+                margin-top: 30px;
+                border-radius: 5px;
+                font-size: 18px;
+                font-family: "Montserrat";
+            }
+        }
+
+        .picture{
+            width: 458px;
+            height: 449px;
+        }
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .wrapper{
+        height: 100vh !important;
+    }
+    .picture{
+        display: none;
+    }
+    .content{
+        width: auto !important;
+    }
+    .form__child{
+        margin-top: 10px !important;
+    }
+    .login__btn{
+        margin-top: 10px !important;
+    }
+}

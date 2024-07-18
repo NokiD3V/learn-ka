@@ -1,0 +1,257 @@
+.header__wrapper{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BFB5AF;
+}
+header{
+    height: 90px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .burger{
+        display: none;
+        width: 0;
+        position: absolute;
+    }
+
+    .nav{
+        display: flex;
+        .nav__item{
+            list-style-type: none;
+            color: #582C4D;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-left: 65px;
+            a{
+                text-decoration: none;
+                color: #582C4D;
+            }
+        }
+    }
+
+    .profile{
+        display: flex;
+        align-items: center;
+        color: #582C4D;
+        text-align: right;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        img{
+            margin-left: 15px;
+        }
+
+        a{
+            color: #582C4D;
+            text-decoration: none;
+        }
+    }
+    .login{
+        display: flex;
+        align-items: center;
+        color: #582C4D;
+        text-align: right;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        img{
+            margin-left: 15px;
+        }
+
+        a{
+            color: #582C4D;
+            text-decoration: none;
+        }
+    }
+}
+
+
+.errors{
+    position: fixed;
+    font-family: Montserrat;
+    padding-right: 50px;
+    color: #582C4D;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    float: right;
+    z-index: 100;
+    right: 0;
+    bottom: 0px;
+    margin-bottom: 50px;
+    ul{
+        z-index: 100;
+        li{
+            z-index: 100;
+            list-style-type: none;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #582C4D;
+            background-color: #ECE2D0;
+        }
+    }
+}
+.errors li:hover{
+    cursor: pointer;
+}
+
+
+/* MOBILE */
+@media screen and (max-width: 1560px)  {
+    header{
+        width: 100%;
+    }
+    .logo{
+        margin-left: 10px;
+    }
+    .profile{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    header.active{
+        height: 100%;
+        align-items: normal;
+        padding-top: 11px;
+        .nav{
+            display: flex;
+            width: 100%;
+            height: 70%;
+            margin-top: 10%;
+            position: fixed;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            a{
+                font-size: 18px;
+            }
+        }
+    }
+    header{
+        align-items: center;
+        position: fixed;
+        background-color: #BFB5AF;
+        .nav{
+            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            .nav__item{
+                margin-left: 0px !important;
+            }
+        }
+
+        .burger{
+            display: block;
+            position: fixed;
+            float: right;
+
+            width: auto;
+            // justify-self: flex-end;
+            margin-left: auto;
+            margin-right: 50px;
+        }
+        .burger.active{
+            position: fixed;
+        }
+    }
+    .login{
+        margin-left: 40px;
+    }
+    header:has(.login){
+        .burger{
+            right: 40px;
+        }
+    }
+    header:has(.profile){
+        .burger{
+            right: 10px;
+        }
+    }
+}
+
+
+
+/* MOBILE */
+@media screen and (max-width: 1560px)  {
+    header{
+        width: 100%;
+    }
+    .logo{
+        margin-left: 10px;
+    }
+    .profile{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header.active{
+        height: 100%;
+        align-items: normal;
+        padding-top: 11px;
+        .nav{
+            display: flex;
+            width: 100%;
+            height: 70%;
+            margin-top: 10%;
+            position: fixed;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            a{
+                font-size: 18px;
+            }
+        }
+    }
+    header{
+        align-items: center;
+        position: fixed;
+        background-color: #BFB5AF;
+        .nav{
+            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            z-index: 100;
+        }
+
+        .burger{
+            display: block;
+            position: fixed;
+            float: right;
+
+            width: auto;
+            // justify-self: flex-end;
+            margin-left: auto;
+            margin-right: 50px;
+        }
+        .burger.active{
+            position: fixed;
+        }
+    }
+    .login{
+        margin-left: 40px;
+    }
+    header:has(.login){
+        .burger{
+            right: 40px;
+        }
+    }
+    header:has(.profile){
+        .burger{
+            right: 10px;
+        }
+    }
+}

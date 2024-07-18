@@ -1,0 +1,149 @@
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    .wrapper{
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 35px;
+    }
+}
+.content *{
+    font-family: 'Montserrat';
+}
+
+.cards{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 100px;
+    grid-template-columns: auto auto auto;
+    .card{
+        max-width: 320px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #000000, #281855);
+        color: #fff;
+        border-radius: 12px;
+        padding: 5px;
+        .card__info{
+            display: flex;
+            flex-direction: column;
+            align-content: start;
+            justify-content: start;
+            height: 100%;
+        }
+        .card__title{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .description{
+            font-size: 12px;
+        }
+        .progress__bar{
+            justify-self: end;
+            margin-top: auto;
+        }
+        .progress__bar__bar{
+            min-height: 10px;
+            min-width: 140px;
+            background-color: #DEDEDE;
+            border-radius: 12px;
+            .progress__status{
+                min-height: 100%;
+                width: 100%;
+                background-color: #60FF83;
+                border-radius: 12px;
+            }
+        }
+    }
+    .card:hover{
+        cursor: pointer;
+    }
+}
+
+
+.chart{
+    margin-left: auto;
+    margin-right: 95px;
+    border: dashed 5px #BFB5AF;
+}
+
+.profile__info{
+    margin-left: 95px;
+    .avatar{
+        padding: 0;
+        margin: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            width: 225px;
+            height: 225px;
+            border-radius: 100%;
+            border: 2px solid #BFB5AF;
+            background-color: #BFB5AF;
+        }
+        .avatar__title{
+            text-align: center;
+            color: #582C4D;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button{
+            text-align: center;
+            margin-top: 5px;
+            width: 95px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #582C4D;
+            color: #ECE2D0;
+        }
+    }
+    
+    .tasks{
+        margin-top: 50px;
+        color: #582C4D;
+        .tasks__title{
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .tasks__item{
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 880px) {
+    .wrapper{
+        flex-direction: column;
+        align-items: center !important;
+        .chart{
+            margin-top: 20px !important;
+            margin-right: 0 !important;
+        }
+        .profile__info{
+            margin-left: 0 !important;
+        }
+        padding-top: 70px;
+    }
+    .avatar{
+        img{
+            width: 190px !important;
+            height: auto !important;
+        }
+    }
+    .tasks__title{
+        text-align: center;
+    }
+    .tasks__item{
+        text-align: center;
+    }
+}
